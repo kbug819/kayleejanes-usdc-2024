@@ -40,7 +40,7 @@
     }
 
     result.SearchTerm = searchTerm
-    
+
     return result; 
 }
 
@@ -113,6 +113,15 @@ if (test2result.Results.length == 1) {
     console.log("PASS: Test 2");
 } else {
     console.log("FAIL: Test 2");
+    console.log("Expected:", twentyLeaguesOut.Results.length);
+    console.log("Received:", test2result.Results.length);
+}
+
+const test3result = findSearchTermInBooks("and", twentyLeaguesIn); 
+if (test3result.Results.length == 2) {
+    console.log("PASS: Test 3");
+} else {
+    console.log("FAIL: Test 3");
     console.log("Expected:", twentyLeaguesOut.Results.length);
     console.log("Received:", test2result.Results.length);
 }
