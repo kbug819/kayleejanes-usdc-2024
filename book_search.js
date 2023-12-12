@@ -131,6 +131,9 @@ const twentyLeaguesTestThe = {
     ]
 }
 
+/* End testing setup */
+
+
 /** We can check that, given a known input, we get a known output. */
 const test1result = findSearchTermInBooks("the", twentyLeaguesIn);
 if (JSON.stringify(twentyLeaguesOut) === JSON.stringify(test1result)) {
@@ -208,7 +211,7 @@ if (test8result.Results.length == 1) {
 } else {
     console.log("FAIL: Test 8");
     console.log("Expected:", twentyLeaguesTestThe.Results.length);
-    console.log("Received:", testresult.Results.length);
+    console.log("Received:", test8result.Results.length);
 }
 
 /** Case-sensitive test - Verification that responses for 'the' and 'The' are not the same and return different results */
