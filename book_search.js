@@ -31,9 +31,9 @@
         scannedText.Content.forEach(content => {
             if (content.Text.includes(searchTerm)) {
                 result.Results.push({
-                    "ISBN": scannedTextObj.ISBN,
-                    "Page": content.page,
-                    "Line": content.line
+                    "ISBN": scannedText.ISBN,
+                    "Page": content.Page,
+                    "Line": content.Line
                 });
             }
         });
@@ -123,5 +123,28 @@ if (test3result.Results.length == 2) {
 } else {
     console.log("FAIL: Test 3");
     console.log("Expected:", twentyLeaguesOut.Results.length);
-    console.log("Received:", test2result.Results.length);
+    console.log("Received:", test3result.Results.length);
+}
+
+const test4result = findSearchTermInBooks("nomatch", twentyLeaguesIn); 
+if (test4result.Results.length == 0) {
+    console.log("PASS: Test 4");
+} else {
+    console.log("FAIL: Test 4");
+    console.log("Expected:", twentyLeaguesOut.Results.length);
+    console.log("Received:", test4result.Results.length);
+}
+
+const twentyLeaguestestnomatch = {
+    "SearchTerm": "nomatch",
+    "Results": []
+}
+
+const test5result = findSearchTermInBooks("nomatch", twentyLeaguesIn);
+if (JSON.stringify(twentyLeaguestestnomatch) === JSON.stringify(test5result)) {
+    console.log("PASS: Test 5");
+} else {
+    console.log("FAIL: Test 5");
+    console.log("Expected:", []);
+    console.log("Received:", test5result);
 }
