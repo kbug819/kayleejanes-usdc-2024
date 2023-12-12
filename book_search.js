@@ -27,6 +27,20 @@
         "Results": []
     };
     
+    for (const scannedText of scannedTextObj) {
+        scannedText.Content.forEach(content => {
+            if (content.Text.includes(searchTerm)) {
+                result.Results.push({
+                    "ISBN": scannedTextObj.ISBN,
+                    "Page": content.page,
+                    "Line": content.line
+                });
+            }
+        });
+    }
+
+    result.SearchTerm = searchTerm
+    
     return result; 
 }
 
